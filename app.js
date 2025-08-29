@@ -14,125 +14,152 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 // Wellness Survey Integration Class
+// Wellness Survey Integration Class
 class WellnessSurvey {
-    constructor() {
-        this.isOpen = false;
-        this.hasBeenOpened = false;
-        this.surveyUrl = './themed-wellness-survey.html'; // Best practice: use ./ for same-folder
-        this.init();
+  constructor() {
+    this.isOpen = false;
+    this.surveyUrl = './themed-wellness-survey.html';
+    this.init();
+  }
+
+  init() {
+    this.bindEvents();
+    this.showTrigger();
+  }
+
+  bindEvents() {
+    const trigger = document.getElementById('surveyTrigger');
+    const modal = document.getElementById('surveyModal');
+    const closeBtn = document.getElementById('surveyClose');
+    const iframe = document.getElementById('surveyIframe');
+    const loading = document.getElementById('surveyLoading');
+    const successOverlay = document.getElementById('surveySuccess');
+
+    if (!trigger || !modal || !closeBtn || !iframe || !loading || !successOverlay) {
+      console.error('Missing elements:', {
+        trigger: !!trigger,
+        modal: !!modal,
+        closeBtn: !!closeBtn,
+        iframe: !!iframe,
+        loading: !!loading,
+        successOverlay: !!successOverlay
+      });
+      return;
     }
 
-    init() {
-        this.bindEvents();
-        this.showTriggerAfterDelay();
-    }
+    trigger.addEventListener('click', () => {
+      console.log('Survey button clicked');
+      this.openSurvey();
+    });
 
-    bindEvents() {
-        const triggerBtn = document.getElementById('surveyTrigger');
-        const modal = document.getElementById('surveyModal');
-        const closeBtn = document.getElementById('surveyClose');
-        const iframe = document.getElementById('surveyIframe');
-        const loading = document.getElementById('surveyLoading');
+    closeBtn.addEventListener('click', () => this.closeSurvey());
 
-        if (!triggerBtn || !modal || !closeBtn || !iframe) {
-            console.warn('Wellness survey elements not found in DOM');
-            return;
-        }
+    modal.addEventListener('click', (e) => {
+      if (e.target === modal) this.closeSurvey();
+    });
 
-        // Remove all existing event listeners to avoid duplicates (important for re-runs)
-        triggerBtn.onclick = null;
-        closeBtn.onclick = null;
-        modal.onclick = null;
-        iframe.onload = null;
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && this.isOpen) this.closeSurvey();
+    });
 
-        triggerBtn.addEventListener('click', () => this.openSurvey());
-        closeBtn.addEventListener('click', () => this.closeSurvey());
-        modal.addEventListener('click', (e) => {
-            if (e.target === modal) this.closeSurvey();
-        });
-        document.addEventListener('keydown', (e) => {
-            if (e.key === 'Escape' && this.isOpen) this.closeSurvey();
-        });
+    iframe.addEventListener('load', () => {
+      console.log('Iframe loaded');
+      loading.style.display = 'none';
+      iframe.style.display = 'block';
+    });
 
-        // Iframe load handler
-        iframe.addEventListener('load', () => {
-            this.hideLoading();
-        });
-    }
+    iframe.addEventListener('error', () => {
+      console.error('Iframe failed to load');
+      alert('Failed to load survey. Please try again.');
+      this.closeSurvey();
+    });
 
-    openSurvey() {
-        const modal = document.getElementById('surveyModal');
-        const iframe = document.getElementById('surveyIframe');
-        const loading = document.getElementById('surveyLoading');
-
-        if (!modal || !iframe || !loading) return;
-
-        // Show modal
-        modal.classList.add('active');
-        this.isOpen = true;
-
-        // Always reset and load fresh
-        loading.style.display = 'flex';
-        iframe.style.display = 'none';
-        iframe.src = `${this.surveyUrl}?t=${Date.now()}`; // avoid cache
-
-        // Hide notification badge after opening
-        if (!this.hasBeenOpened) {
-            this.hasBeenOpened = true;
-            const badge = document.querySelector('.survey-notification-badge');
-            if (badge) badge.style.display = 'none';
-        }
-
-        document.body.style.overflow = 'hidden';
-        this.trackEvent('survey_opened');
-    }
-
-    closeSurvey() {
-        const modal = document.getElementById('surveyModal');
-        if (!modal) return;
-        modal.classList.remove('active');
-        this.isOpen = false;
-        document.body.style.overflow = 'auto';
-        this.trackEvent('survey_closed');
-    }
-
-    hideLoading() {
-        const loading = document.getElementById('surveyLoading');
-        const iframe = document.getElementById('surveyIframe');
-        if (loading && iframe) {
-            loading.style.display = 'none';
-            iframe.style.display = 'block';
-        }
-    }
-
-    showSuccessMessage() {
-        const successOverlay = document.getElementById('surveySuccess');
-        if (successOverlay) {
-            successOverlay.classList.add('active');
-            setTimeout(() => {
-                this.closeSurvey();
-                successOverlay.classList.remove('active');
-            }, 3000);
-        }
-        this.trackEvent('survey_completed');
-    }
-
-    showTriggerAfterDelay() {
+    window.addEventListener('message', (e) => {
+      if (e.data.type === 'surveyCompleted') {
+        successOverlay.style.display = 'flex';
         setTimeout(() => {
-            const trigger = document.getElementById('surveyTrigger');
-            if (trigger) {
-                trigger.style.display = 'flex';
-            }
+          this.closeSurvey();
+          successOverlay.style.display = 'none';
         }, 3000);
-    }
+      } else if (e.data.type === 'closeSurvey') {
+        this.closeSurvey();
+      }
+    });
+  }
 
-    trackEvent(eventName) {
-        // Add your analytics tracking here
-        if (typeof gtag !== 'undefined') {
-            gtag('event', eventName, {
-                event_category: 'wellness_survey',
-                event_label: 'survey_interaction'
+  openSurvey() {
+    const modal = document.getElementById('surveyModal');
+    const iframe = document.getElementById('surveyIframe');
+    const loading = document.getElementById('surveyLoading');
+
+    modal.classList.add('active');
+    this.isOpen = true;
+    loading.style.display = 'flex';
+    iframe.style.display = 'none';
+    iframe.src = this.surveyUrl + '?t=' + Date.now();
+    document.body.style.overflow = 'hidden';
+  }
+
+  closeSurvey() {
+    const modal = document.getElementById('surveyModal');
+    modal.classList.remove('active');
+    this.isOpen = false;
+    document.body.style.overflow = 'auto';
+  }
+
+  showTrigger() {
+    const trigger = document.getElementById('surveyTrigger');
+    if (trigger) {
+      trigger.style.display = 'inline-flex';
+      trigger.style.visibility = 'visible';
+      trigger.style.opacity = '1';
+      trigger.classList.add('animate-on-scroll');
+    } else {
+      console.error('Survey trigger not found');
+    }
+  }
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+  new WellnessSurvey();
+});
+
+document.addEventListener('DOMContentLoaded', () => {
+    if (document.getElementById('surveyTrigger')) {
+        const survey = new WellnessSurvey();
+        const trigger = document.getElementById('surveyTrigger');
+        if (trigger) {
+            trigger.addEventListener('mouseenter', () => {
+                trigger.style.transform = 'translateY(-4px) scale(1.05)';
             });
+            trigger.addEventListener('mouseleave', () => {
+                trigger.style.transform = 'translateY(0) scale(1)';
+            });
+        }
+    }
+});
+
+function initWellnessSurvey() {
+    if (document.getElementById('surveyTrigger')) {
+        const survey = new WellnessSurvey();
+
+        const trigger = document.getElementById('surveyTrigger');
+        if (trigger) {
+            trigger.addEventListener('mouseenter', () => {
+                trigger.style.transform = 'translateY(-4px) scale(1.05)';
+            });
+            trigger.addEventListener('mouseleave', () => {
+                trigger.style.transform = 'translateY(0) scale(1)';
+            });
+
+            setInterval(() => {
+                if (!document.getElementById('surveyModal').classList.contains('active')) {
+                    trigger.style.animation = 'none';
+                    setTimeout(() => {
+                        trigger.style.animation = 'surveyPulse 3s ease-in-out infinite';
+                    }, 100);
+                }
+            }, 30000);
         }
     }
 }
