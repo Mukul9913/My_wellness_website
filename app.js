@@ -124,24 +124,8 @@ document.addEventListener('DOMContentLoaded', () => {
   new WellnessSurvey();
 });
 
-document.addEventListener('DOMContentLoaded', () => {
-    if (document.getElementById('surveyTrigger')) {
-        const survey = new WellnessSurvey();
-        const trigger = document.getElementById('surveyTrigger');
-        if (trigger) {
-            trigger.addEventListener('mouseenter', () => {
-                trigger.style.transform = 'translateY(-4px) scale(1.05)';
-            });
-            trigger.addEventListener('mouseleave', () => {
-                trigger.style.transform = 'translateY(0) scale(1)';
-            });
-        }
-    }
-});
-
 function initWellnessSurvey() {
     if (document.getElementById('surveyTrigger')) {
-        const survey = new WellnessSurvey();
 
         const trigger = document.getElementById('surveyTrigger');
         if (trigger) {
@@ -167,7 +151,6 @@ function initWellnessSurvey() {
 // Only call this ONCE!
 function initWellnessSurvey() {
     if (document.getElementById('surveyTrigger')) {
-        new WellnessSurvey();
 
         // Enhanced trigger button interactions
         const trigger = document.getElementById('surveyTrigger');
@@ -195,7 +178,6 @@ function initWellnessSurvey() {
     // Check if survey elements exist in DOM
     if (document.getElementById('surveyTrigger')) {
 
-        new WellnessSurvey();
         
         // Enhanced trigger button interactions
         const trigger = document.getElementById('surveyTrigger');
