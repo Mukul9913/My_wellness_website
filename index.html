@@ -1,19 +1,24 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Tejesh Dixit - Wellness with Kangen Water | Global Distributor</title>
-    <meta name="description" content="Wellness begins with what you choose daily. Helping families rethink hydration, energy & EMF awareness. Kangen Water Global Distributor in Indore.">
-    <meta name="keywords" content="Kangen Water, Wellness, Hydration, EMF Protection, Water Quality, Workshops, Indore, Tejesh Dixit">
+    <meta name="description"
+        content="Wellness begins with what you choose daily. Helping families rethink hydration, energy & EMF awareness. Kangen Water Global Distributor in Indore.">
+    <meta name="keywords"
+        content="Kangen Water, Wellness, Hydration, EMF Protection, Water Quality, Workshops, Indore, Tejesh Dixit">
     <meta name="author" content="Tejesh Dixit">
     <meta property="og:title" content="Tejesh Dixit - Wellness with Kangen Water">
-    <meta property="og:description" content="Helping families rethink hydration, energy & EMF awareness. Start your wellness journey today!">
+    <meta property="og:description"
+        content="Helping families rethink hydration, energy & EMF awareness. Start your wellness journey today!">
     <meta property="og:image" content="assets/tejesh-profile.jpeg">
     <meta property="og:url" content="https://wellnesswithtejesh.blogspot.com/">
     <meta name="twitter:card" content="summary_large_image">
     <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
     <!-- Navigation -->
     <nav class="navbar">
@@ -37,50 +42,35 @@
     </nav>
 
     <!-- Survey Modal -->
-   <div class="survey-modal-overlay" id="surveyModal" role="dialog" aria-modal="true" aria-labelledby="surveyTitle" aria-hidden="true">
-    <div class="survey-modal-container">
-        <!-- Header -->
-        <div class="survey-modal-header">
-            <h3 class="survey-modal-title" id="surveyTitle">
-                <span>✨</span>
-                <span>Complete Your Wellness Assessment</span>
-            </h3>
-            <button 
-                class="survey-modal-close" 
-                id="surveyClose" 
-                aria-label="Close Survey"
-                type="button">
-                ×
-            </button>
-        </div>
-
-        <!-- Survey Content -->
-        <div class="survey-iframe-container" id="surveyContainer">
-            <div class="survey-loading" id="surveyLoading">
-                <div class="survey-loading-spinner"></div>
-                <p>Loading your wellness survey...</p>
+    <div class="survey-modal-overlay" id="surveyModal" role="dialog" aria-modal="true" aria-labelledby="surveyTitle"
+        aria-hidden="true">
+        <div class="survey-modal-container">
+            <!-- Header -->
+            <div class="survey-modal-header">
+                <h3 class="survey-modal-title" id="surveyTitle">
+                    <span>✨</span>
+                    <span>Complete Your Wellness Assessment</span>
+                </h3>
+                <button class="survey-modal-close" id="surveyClose" aria-label="Close Survey" type="button">×</button>
             </div>
-            <iframe 
-                class="survey-iframe"
-                id="surveyIframe"
-                src=""
-                loading="lazy"
-                allowfullscreen
-                frameborder="0"
-                scrolling="auto"
-                style="display: none;"
-                title="Wellness Survey">
-            </iframe>
-        </div>
-
-        <!-- Success Overlay -->
-        <div class="survey-success-overlay" id="surveySuccess" hidden>
-            <div class="survey-success-icon">🎉</div>
-            <h3>Thank you for completing the survey!</h3>
-            <p>We'll contact you soon via WhatsApp</p>
+            <!-- Survey Content -->
+            <div class="survey-iframe-container" id="surveyContainer">
+                <div class="survey-loading" id="surveyLoading">
+                    <div class="survey-loading-spinner"></div>
+                    <p>Loading your wellness survey...</p>
+                </div>
+                <iframe class="survey-iframe" id="surveyIframe" src="" loading="lazy" allowfullscreen frameborder="0"
+                    scrolling="auto" style="display: none;" title="Wellness Survey"></iframe>
+            </div>
+            <!-- Success Overlay -->
+            <div class="survey-success-overlay" id="surveySuccess" style="display:none;">
+                <div class="survey-success-icon">🎉</div>
+                <h3>Thank you for completing the survey!</h3>
+                <p>We'll contact you soon via WhatsApp</p>
+            </div>
         </div>
     </div>
-</div>
+
 
 
     <!-- Hero Section -->
@@ -100,11 +90,8 @@
                 <div class="hero-text">
                     <div class="profile-section">
                         <div class="profile-image-container">
-                            <img src="assets/tejesh-profile.jpeg" 
-                                 alt="Tejesh Dixit - Wellness Advisor" 
-                                 class="profile-image"
-                                 loading="eager"
-                                 onerror="this.style.display='none'">
+                            <img src="assets/tejesh-profile.jpeg" alt="Tejesh Dixit - Wellness Advisor"
+                                class="profile-image" loading="eager" onerror="this.style.display='none'">
                             <div class="profile-ring"></div>
                             <div class="profile-status">
                                 <span class="status-dot"></span>
@@ -123,12 +110,15 @@
                     <p class="hero-location">📍 Indore, MP | Your Personal Wellness Advisor</p>
                     <div class="hero-buttons">
                         <a href="#contact" class="btn btn--primary btn--lg">Start Your Wellness Journey</a>
-                        <a href="https://api.whatsapp.com/send?phone=918770343316" target="_blank" class="btn btn--outline btn--lg">WhatsApp Consultation</a>
-                        <button class="wellness-survey-trigger animate-on-scroll" id="surveyTrigger" aria-label="Open Wellness Survey">
+                        <a href="https://api.whatsapp.com/send?phone=918770343316" target="_blank"
+                            class="btn btn--outline btn--lg">WhatsApp Consultation</a>
+                        <button class="wellness-survey-trigger animate-on-scroll" id="surveyTrigger"
+                            aria-label="Open Wellness Survey">
                             <span class="survey-icon">✨</span>
                             <span>Wellness Survey</span>
                             <div class="survey-notification-badge" aria-hidden="true">!</div>
                         </button>
+
                     </div>
                 </div>
                 <div class="hero-stats">
@@ -161,17 +151,22 @@
                     <div class="wellness-card">
                         <div class="wellness-icon">🌊</div>
                         <h3>My Mission</h3>
-                        <p>As a global distributor of Kangen water and dedicated wellness advisor, I help families make informed decisions about their health. Wellness truly begins with what you choose daily - starting with the water you drink.</p>
+                        <p>As a global distributor of Kangen water and dedicated wellness advisor, I help families make
+                            informed decisions about their health. Wellness truly begins with what you choose daily -
+                            starting with the water you drink.</p>
                     </div>
                     <div class="wellness-card">
                         <div class="wellness-icon">💡</div>
                         <h3>My Approach</h3>
-                        <p>Through education, awareness, and premium Kangen water solutions, I guide families toward optimal hydration, energy, and protection from EMF radiation in our digital age.</p>
+                        <p>Through education, awareness, and premium Kangen water solutions, I guide families toward
+                            optimal hydration, energy, and protection from EMF radiation in our digital age.</p>
                     </div>
                     <div class="wellness-card">
                         <div class="wellness-icon">🏆</div>
                         <h3>My Promise</h3>
-                        <p>24/7 support, free wellness workshops, and personalized guidance to help you achieve your wellness goals. Your health is your responsibility, and I'm here to support that journey.</p>
+                        <p>24/7 support, free wellness workshops, and personalized guidance to help you achieve your
+                            wellness goals. Your health is your responsibility, and I'm here to support that journey.
+                        </p>
                     </div>
                 </div>
             </div>
@@ -190,25 +185,29 @@
                     <div class="service-icon">💧</div>
                     <h3>Kangen Water Solutions</h3>
                     <p>Global distributor of premium Kangen water ionizers for optimal hydration and wellness</p>
-                    <a href="https://api.whatsapp.com/send?phone=918770343316&text=Hi Tejesh, I want to know about Kangen Water" target="_blank" class="service-link">Learn More</a>
+                    <a href="https://api.whatsapp.com/send?phone=918770343316&text=Hi Tejesh, I want to know about Kangen Water"
+                        target="_blank" class="service-link">Learn More</a>
                 </div>
                 <div class="service-card">
                     <div class="service-icon">🌱</div>
                     <h3>Wellness Consulting</h3>
                     <p>Personal wellness advisor helping families make informed health decisions</p>
-                    <a href="https://api.whatsapp.com/send?phone=918770343316&text=Hi Tejesh, I need wellness consultation" target="_blank" class="service-link">Consult Now</a>
+                    <a href="https://api.whatsapp.com/send?phone=918770343316&text=Hi Tejesh, I need wellness consultation"
+                        target="_blank" class="service-link">Consult Now</a>
                 </div>
                 <div class="service-card">
                     <div class="service-icon">🛡️</div>
                     <h3>EMF Awareness Training</h3>
                     <p>Education and solutions for digital age invisible dangers and EMF protection</p>
-                    <a href="https://api.whatsapp.com/send?phone=918770343316&text=Hi Tejesh, I want to learn about EMF protection" target="_blank" class="service-link">Get Protected</a>
+                    <a href="https://api.whatsapp.com/send?phone=918770343316&text=Hi Tejesh, I want to learn about EMF protection"
+                        target="_blank" class="service-link">Get Protected</a>
                 </div>
                 <div class="service-card">
                     <div class="service-icon">🎓</div>
                     <h3>Water Education Workshops</h3>
                     <p>Free wellness workshops to help you understand the importance of quality water</p>
-                    <a href="https://api.whatsapp.com/send?phone=918770343316&text=Hi Tejesh, I want to attend wellness workshop" target="_blank" class="service-link">Join Workshop</a>
+                    <a href="https://api.whatsapp.com/send?phone=918770343316&text=Hi Tejesh, I want to attend wellness workshop"
+                        target="_blank" class="service-link">Join Workshop</a>
                 </div>
             </div>
         </div>
@@ -226,35 +225,41 @@
                     <div class="resource-type">🆓 Workshop</div>
                     <h3>Free Wellness Workshop</h3>
                     <p>आपकी सेहत आपकी जिम्मेदारी - Know Your Water</p>
-                    <a href="https://api.whatsapp.com/send?phone=918770343316&text=Hi+Tejesh,+I+want+to+know+about+wellness+with+water" target="_blank" class="btn btn--primary">Join Workshop</a>
+                    <a href="https://api.whatsapp.com/send?phone=918770343316&text=Hi+Tejesh,+I+want+to+know+about+wellness+with+water"
+                        target="_blank" class="btn btn--primary">Join Workshop</a>
                 </div>
                 <div class="resource-card">
                     <div class="resource-type">📘 E-book</div>
                     <h3>Know Your Water</h3>
                     <p>Comprehensive guide to understanding water quality and its impact on health</p>
-                    <a href="https://drive.google.com/file/d/1-s8vLPuL-dHEM3INRNHNHYrCgJFNFCRR/view?usp=drivesdk" target="_blank" class="btn btn--primary">Download Free</a>
+                    <a href="https://drive.google.com/file/d/1-s8vLPuL-dHEM3INRNHNHYrCgJFNFCRR/view?usp=drivesdk"
+                        target="_blank" class="btn btn--primary">Download Free</a>
                 </div>
                 <div class="resource-card">
                     <div class="resource-type">📘 E-book</div>
                     <h3>EMR Digital Yug Ka Invisible Khatra</h3>
                     <p>Essential guide to protecting yourself from digital age electromagnetic radiation</p>
-                    <a href="https://drive.google.com/file/d/1-l6HvPa1qntQE99XoQGmApHN_tnNai12/view?usp=drivesdk" target="_blank" class="btn btn--primary">Download Free</a>
+                    <a href="https://drive.google.com/file/d/1-l6HvPa1qntQE99XoQGmApHN_tnNai12/view?usp=drivesdk"
+                        target="_blank" class="btn btn--primary">Download Free</a>
                 </div>
                 <div class="resource-card">
                     <div class="resource-type">📺 Videos</div>
                     <h3>Transformation Stories</h3>
                     <p>Watch real people achieve real results with Kangen water</p>
-                    <a href="https://youtube.com/playlist?list=PLtSlCIEnlYqZbP_BSFWIsRcWCnZbqKFF8&si=donzKibNqO9mNMkf" target="_blank" class="btn btn--primary">Watch Now</a>
+                    <a href="https://youtube.com/playlist?list=PLtSlCIEnlYqZbP_BSFWIsRcWCnZbqKFF8&si=donzKibNqO9mNMkf"
+                        target="_blank" class="btn btn--primary">Watch Now</a>
                 </div>
             </div>
             <div class="blog-section">
                 <h3>Latest Wellness Insights</h3>
                 <div class="blog-links">
-                    <a href="https://wellnesswithtejesh.blogspot.com/2025/08/health-shuru-hoti-hai-paani-se-kya-aap.html" target="_blank" class="blog-link">
+                    <a href="https://wellnesswithtejesh.blogspot.com/2025/08/health-shuru-hoti-hai-paani-se-kya-aap.html"
+                        target="_blank" class="blog-link">
                         <span class="blog-emoji">💧</span>
                         Health Shuru Hoti Hai Paani Se – Kya Aap Tayyar Hain?
                     </a>
-                    <a href="https://wellnesswithtejesh.blogspot.com/2025/08/digital-duniya-ke-invisible-khataron-se.html" target="_blank" class="blog-link">
+                    <a href="https://wellnesswithtejesh.blogspot.com/2025/08/digital-duniya-ke-invisible-khataron-se.html"
+                        target="_blank" class="blog-link">
                         <span class="blog-emoji">🧲</span>
                         Bachaiye Apne Ghar Ko – EMF Detox Guide Inside
                     </a>
@@ -273,7 +278,8 @@
             <div class="testimonials-slider">
                 <div class="testimonial-card active">
                     <div class="testimonial-content">
-                        <p>"Tejesh ki guidance se humari family ka health completely transform ho gaya. Kangen water ne literally hamari life change kar di!"</p>
+                        <p>"Tejesh ki guidance se humari family ka health completely transform ho gaya. Kangen water ne
+                            literally hamari life change kar di!"</p>
                     </div>
                     <div class="testimonial-author">
                         <strong>Priya Sharma</strong>
@@ -282,7 +288,8 @@
                 </div>
                 <div class="testimonial-card">
                     <div class="testimonial-content">
-                        <p>"EMF ke bare mein maine kabhi nahi socha tha. Tejesh ne awareness diya aur ab hamara ghar completely protected hai."</p>
+                        <p>"EMF ke bare mein maine kabhi nahi socha tha. Tejesh ne awareness diya aur ab hamara ghar
+                            completely protected hai."</p>
                     </div>
                     <div class="testimonial-author">
                         <strong>Rajesh Patel</strong>
@@ -291,7 +298,8 @@
                 </div>
                 <div class="testimonial-card">
                     <div class="testimonial-content">
-                        <p>"Free workshop attend karke samjha ki water quality kitna important hai. Thank you Tejesh bhai for this awareness!"</p>
+                        <p>"Free workshop attend karke samjha ki water quality kitna important hai. Thank you Tejesh
+                            bhai for this awareness!"</p>
                     </div>
                     <div class="testimonial-author">
                         <strong>Anita Gupta</strong>
@@ -334,14 +342,16 @@
                         <div class="contact-icon">🌐</div>
                         <div class="contact-details">
                             <h4>Website</h4>
-                            <a href="https://wellnesswithtejesh.blogspot.com/" target="_blank">wellnesswithtejesh.blogspot.com</a>
+                            <a href="https://wellnesswithtejesh.blogspot.com/"
+                                target="_blank">wellnesswithtejesh.blogspot.com</a>
                         </div>
                     </div>
                     <div class="contact-item">
                         <div class="contact-icon">📍</div>
                         <div class="contact-details">
                             <h4>Wellness Studio</h4>
-                            <a href="https://share.google/135uJ32dUP9lXymoM" target="_blank">Visit Our Studio in Indore</a>
+                            <a href="https://share.google/135uJ32dUP9lXymoM" target="_blank">Visit Our Studio in
+                                Indore</a>
                         </div>
                     </div>
                 </div>
@@ -367,9 +377,11 @@
                         </div>
                         <div class="form-group">
                             <label for="message" class="form-label">Message</label>
-                            <textarea id="message" name="message" class="form-control" rows="4" placeholder="Tell me how I can help you..."></textarea>
+                            <textarea id="message" name="message" class="form-control" rows="4"
+                                placeholder="Tell me how I can help you..."></textarea>
                         </div>
-                        <button type="submit" class="btn btn--primary btn--full-width">Send Message via WhatsApp</button>
+                        <button type="submit" class="btn btn--primary btn--full-width">Send Message via
+                            WhatsApp</button>
                     </form>
                 </div>
             </div>
@@ -393,7 +405,8 @@
                     <span class="social-icon">📷</span>
                     <span>Instagram</span>
                 </a>
-                <a href="https://www.linkedin.com/in/tejesh-dixit-7a5a2a104" target="_blank" class="social-link linkedin">
+                <a href="https://www.linkedin.com/in/tejesh-dixit-7a5a2a104" target="_blank"
+                    class="social-link linkedin">
                     <span class="social-icon">💼</span>
                     <span>LinkedIn</span>
                 </a>
@@ -419,5 +432,6 @@
 
     <script src="app.js"></script>
 </body>
+
 </html>
 <!-- MUKUL -->
