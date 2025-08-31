@@ -37,39 +37,51 @@
     </nav>
 
     <!-- Survey Modal -->
-    <div class="survey-modal-overlay" id="surveyModal" aria-hidden="true">
-        <div class="survey-modal-container">
-            <div class="survey-modal-header">
-                <h3 class="survey-modal-title">
-                    <span>✨</span>
-                    <span>Complete Your Wellness Assessment</span>
-                </h3>
-                <button class="survey-modal-close" id="surveyClose" aria-label="Close Survey">×</button>
+   <div class="survey-modal-overlay" id="surveyModal" role="dialog" aria-modal="true" aria-labelledby="surveyTitle" aria-hidden="true">
+    <div class="survey-modal-container">
+        <!-- Header -->
+        <div class="survey-modal-header">
+            <h3 class="survey-modal-title" id="surveyTitle">
+                <span>✨</span>
+                <span>Complete Your Wellness Assessment</span>
+            </h3>
+            <button 
+                class="survey-modal-close" 
+                id="surveyClose" 
+                aria-label="Close Survey"
+                type="button">
+                ×
+            </button>
+        </div>
+
+        <!-- Survey Content -->
+        <div class="survey-iframe-container" id="surveyContainer">
+            <div class="survey-loading" id="surveyLoading">
+                <div class="survey-loading-spinner"></div>
+                <p>Loading your wellness survey...</p>
             </div>
-            <div class="survey-iframe-container" id="surveyContainer">
-                <div class="survey-loading" id="surveyLoading">
-                    <div class="survey-loading-spinner"></div>
-                    <p>Loading your wellness survey...</p>
-                </div>
-                <iframe 
-                    class="survey-iframe" 
-                    id="surveyIframe"
-                    src=""
-                    loading="lazy"
-                    allowfullscreen
-                    frameborder="0"
-                    scrolling="auto"
-                    style="display: none;"
-                    title="Wellness Survey">
-                </iframe>
-            </div>
-            <div class="survey-success-overlay" id="surveySuccess">
-                <div class="survey-success-icon">🎉</div>
-                <h3>Thank you for completing the survey!</h3>
-                <p>We'll contact you soon via WhatsApp</p>
-            </div>
+            <iframe 
+                class="survey-iframe"
+                id="surveyIframe"
+                src=""
+                loading="lazy"
+                allowfullscreen
+                frameborder="0"
+                scrolling="auto"
+                style="display: none;"
+                title="Wellness Survey">
+            </iframe>
+        </div>
+
+        <!-- Success Overlay -->
+        <div class="survey-success-overlay" id="surveySuccess" hidden>
+            <div class="survey-success-icon">🎉</div>
+            <h3>Thank you for completing the survey!</h3>
+            <p>We'll contact you soon via WhatsApp</p>
         </div>
     </div>
+</div>
+
 
     <!-- Hero Section -->
     <section id="home" class="hero">
