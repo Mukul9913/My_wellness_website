@@ -18,7 +18,7 @@ document.addEventListener('DOMContentLoaded', function() {
 class WellnessSurvey {
   constructor() {
     this.isOpen = false;
-    this.surveyUrl = './themed-wellness-survey.html';
+    this.surveyUrl = '/themed-wellness-survey.html';
     this.init();
   }
 
