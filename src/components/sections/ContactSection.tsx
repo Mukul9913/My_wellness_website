@@ -64,7 +64,7 @@ export default function ContactSection() {
             Get In Touch
           </h2>
           <p className="text-xl text-slate-300 max-w-2xl mx-auto">
-            Ready to start your wellness journey? Let's connect and discuss how we can help transform your health.
+            Ready to start your wellness journey? Let&apos;s connect and discuss how we can help transform your health.
           </p>
         </motion.div>
 
